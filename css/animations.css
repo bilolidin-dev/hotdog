@@ -1,0 +1,71 @@
+/**
+ * ORIGINAL HOT DOG — Спокойные анимации интерфейса (css/animations.css)
+ */
+
+@keyframes toastSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.toast-item {
+  animation: toastSlideIn 0.2s ease-out forwards;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.toast-item.toast-leaving {
+  opacity: 0;
+  transform: translateY(-6px);
+}
+
+dialog.ohd-modal[open] {
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+.btn-primary,
+.btn-secondary,
+.btn-add-to-cart,
+.btn-whatsapp-submit,
+.header-cart-btn,
+.header-whatsapp-btn,
+.stepper-btn,
+.qty-btn {
+  transition: transform 0.14s ease, background-color 0.18s ease, border-color 0.18s ease;
+}
+
+.btn-primary:active,
+.btn-secondary:active,
+.btn-add-to-cart:active,
+.btn-whatsapp-submit:active,
+.header-cart-btn:active,
+.stepper-btn:active,
+.qty-btn:active {
+  transform: scale(0.98);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

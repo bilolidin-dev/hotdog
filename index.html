@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>ORIGINAL HOT DOG — Пицца, Суши и роллы, Шаурма, Хот-доги в Кашкар-Кыштаке</title>
+  <meta name="description" content="Меню ресторана ORIGINAL HOT DOG в Кашкар-Кыштаке (ул. Кара-Суу). Пицца, суши и роллы, комбо-наборы, шаурма, бургеры, хот-доги и напитки. Бесплатная доставка по Кашкар-Кыштаку при заказе свыше 500 сом. Заказ через WhatsApp.">
+  <meta name="theme-color" content="#faf7f2">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ru_RU">
+  <meta property="og:title" content="ORIGINAL HOT DOG — Меню и заказ через WhatsApp">
+  <meta property="og:description" content="Свежая пицца, роллы, шаурма, бургеры и фирменные хот-доги. Работаем ежедневно с 10:00 до 00:00.">
+  <meta property="og:image" content="assets/images/banners/hero-banner.webp">
+
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link visually-hidden">Перейти к меню</a>
+  <!-- Шапка сайта -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo-link" aria-label="ORIGINAL HOT DOG — на главную">
+        <img src="assets/icons/logo.svg" alt="ORIGINAL HOT DOG" width="180" height="46" class="brand-logo-img">
+      </a>
+
+      <nav class="main-nav" aria-label="Основная навигация">
+        <a href="menu.html" class="nav-link">Меню</a>
+        <a href="#combos-section" class="nav-link">Комбо</a>
+        <a href="#delivery-section" class="nav-link">Доставка</a>
+        <a href="#contacts-section" class="nav-link">Контакты</a>
+      </nav>
+
+      <div class="header-actions">
+        <a
+          href="https://wa.me/996550042597"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="header-whatsapp-btn"
+          aria-label="Написать в WhatsApp +996 550 04-25-97"
+        >
+          <svg class="header-whatsapp-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+          <span>WhatsApp</span>
+        </a>
+
+        <button type="button" class="header-cart-btn" data-open-cart aria-label="Открыть корзину заказа">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+          <span class="header-cart-label">Корзина</span>
+          <span class="cart-badge-pill" data-cart-count>0</span>
+        </button>
+
+        <button
+          type="button"
+          id="mobile-menu-toggle"
+          class="mobile-menu-btn"
+          aria-expanded="false"
+          aria-controls="mobile-nav-drawer"
+          aria-label="Открыть меню навигации"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-nav-drawer" class="mobile-nav-drawer" hidden>
+      <ul class="mobile-nav-list">
+        <li><a href="#catalog-section">Каталог меню <span>→</span></a></li>
+        <li><a href="menu.html">Отдельная страница меню <span>→</span></a></li>
+        <li><a href="#combos-section">Комбо-наборы <span>→</span></a></li>
+        <li><a href="#delivery-section">Доставка и самовывоз <span>→</span></a></li>
+        <li><a href="#contacts-section">Адрес и карта <span>→</span></a></li>
+        <li><a href="https://wa.me/996550042597" target="_blank" rel="noopener noreferrer">Написать в WhatsApp <span>↗</span></a></li>
+        <li><a href="tel:+996550042597">Позвонить: +996 550 04-25-97 <span>☎</span></a></li>
+      </ul>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <!-- ПЕРВЫЙ ЭКРАН (HERO) -->
+    <section class="hero-section" aria-labelledby="hero-heading">
+      <div class="container hero-grid">
+        <div>
+          <div class="hero-meta-line">
+            <span class="status-dot" aria-hidden="true"></span>
+            <span data-working-status>Ежедневно с 10:00 до 00:00</span>
+            <span>• Кашкар-Кыштак</span>
+          </div>
+
+          <h1 id="hero-heading" class="hero-title">
+            Свежая пицца, роллы, шаурма и фирменный Оригинал хот-дог
+          </h1>
+
+          <p class="hero-subtitle">
+            Выберите блюда в каталоге, добавьте в корзину и отправьте готовый заказ в наш WhatsApp — с доставкой или самовывозом.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#catalog-section" class="btn-primary">Посмотреть меню</a>
+            <button type="button" class="btn-secondary" data-hero-order>Заказать</button>
+          </div>
+
+          <div class="hero-delivery-note">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg>
+            <span><strong>Бесплатная доставка по Кашкар-Кыштаку</strong> при заказе свыше 500 сом. Доступен самовывоз.</span>
+          </div>
+        </div>
+
+        <div class="hero-visual-frame">
+          <img
+            src="assets/images/banners/hero-banner.webp"
+            alt="Блюда ресторана ORIGINAL HOT DOG: пицца Пепперони, роллы с лососем, картофель фри и фирменный хот-дог"
+            width="1200"
+            height="900"
+            fetchpriority="high"
+            class="hero-banner-img"
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ПОПУЛЯРНОЕ МЕНЮ -->
+    <section id="popular-section" class="section-block is-surface-band" aria-labelledby="popular-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 id="popular-title" class="section-title">Популярное меню</h2>
+            <p class="section-desc">Востребованные блюда из разных разделов — добавляйте в заказ в один клик.</p>
+          </div>
+          <a href="#catalog-section" class="btn-secondary" data-catalog-total-btn>Все 49 позиций</a>
+        </div>
+
+        <div id="popular-menu-grid" class="menu-cards-grid"></div>
+      </div>
+    </section>
+
+    <!-- БЫСТРЫЙ ПЕРЕХОД ПО КАТЕГОРИЯМ -->
+    <section id="categories-section" class="section-block" aria-labelledby="categories-title" style="padding-bottom: 1rem;">
+      <div class="container">
+        <div class="section-header" style="margin-bottom: 1.25rem;">
+          <div>
+            <h2 id="categories-title" class="section-title">Разделы меню</h2>
+          </div>
+          <a href="menu.html" class="nav-link" style="text-decoration: underline;">Открыть отдельную страницу меню →</a>
+        </div>
+
+        <div id="home-categories-grid" class="category-quick-grid"></div>
+      </div>
+    </section>
+
+    <!-- КАТАЛОГ МЕНЮ С ФИЛЬТРАЦИЕЙ И ПОИСКОМ -->
+    <section id="catalog-section" class="section-block" aria-labelledby="catalog-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 id="catalog-title" class="section-title">Полное меню</h2>
+            <p class="section-desc">Все блюда и размеры с актуальными ценами. Выберите категорию или найдите нужное блюдо по названию.</p>
+          </div>
+        </div>
+
+        <div class="catalog-controls-bar">
+          <div class="catalog-search-row">
+            <div class="search-input-wrap">
+              <label for="menu-search-input" class="visually-hidden">Поиск блюда по названию</label>
+              <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input
+                type="search"
+                id="menu-search-input"
+                name="q"
+                class="search-input"
+                placeholder="Поиск: пицца, ролл, шаурма, хот-дог..."
+                autocomplete="off"
+                autocorrect="off"
+                autocapitalize="off"
+                spellcheck="false"
+                enterkeyhint="search"
+              >
+              <button
+                type="button"
+                id="menu-search-clear"
+                class="search-clear-btn"
+                aria-label="Очистить поиск"
+                hidden
+              >✕</button>
+            </div>
+            <div id="catalog-results-count" class="catalog-results-count" aria-live="polite"></div>
+          </div>
+
+          <div
+            id="category-filter-tabs"
+            class="filter-tabs-scroll"
+            role="tablist"
+            aria-label="Категории меню"
+          ></div>
+        </div>
+
+        <div id="menu-catalog-container"></div>
+      </div>
+    </section>
+
+    <!-- ОТДЕЛЬНАЯ СЕКЦИЯ КОМБО -->
+    <section id="combos-section" class="section-block is-surface-band" aria-labelledby="combos-title">
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 id="combos-title" class="section-title">Комбо-наборы</h2>
+            <p class="section-desc">Готовые наборы для компании и семьи. Бесплатная доставка по Кашкар-Кыштаку включена (сумма свыше 500 сом).</p>
+          </div>
+        </div>
+
+        <div id="combos-showcase-grid" class="combos-showcase-grid"></div>
+      </div>
+    </section>
+
+    <!-- ДОСТАВКА, АДРЕС И КАРТА -->
+    <section id="delivery-section" class="section-block" aria-labelledby="delivery-title">
+      <div class="container">
+        <div id="contacts-section" class="info-split-card">
+          <div>
+            <h2 id="delivery-title" class="section-title">Доставка и самовывоз</h2>
+            <p class="section-desc">Прозрачные условия получения заказа без скрытых доплат.</p>
+
+            <div class="delivery-points-list">
+              <div class="delivery-point-item">
+                <span class="info-icon-box" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+                </span>
+                <div>
+                  <strong>По Кашкар-Кыштаку — бесплатно свыше 500 сом</strong>
+                  <p>При заказе свыше 500 сом доставка по Кашкар-Кыштаку бесплатная. Стоимость доставки за пределами района и для заказов до 500 сом уточняется в WhatsApp.</p>
+                </div>
+              </div>
+
+              <div class="delivery-point-item">
+                <span class="info-icon-box" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+                </span>
+                <div>
+                  <strong>Самовывоз доступен каждый день</strong>
+                  <p>Оформите заказ на сайте и заберите готовые горячие блюда по адресу ресторана без ожидания.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="branch-location-box">
+            <div>
+              <h3 class="section-title" style="font-size: 1.4rem; margin-bottom: 1rem;">Адрес и контакты</h3>
+
+              <div class="branch-facts-grid">
+                <div class="branch-fact-row">
+                  <span class="info-icon-box" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </span>
+                  <div>
+                    <strong>Наш адрес (1 филиал)</strong>
+                    <span>Ошская область, Кара-Сууйский район, Кашкар-Кыштак, улица Кара-Суу</span>
+                  </div>
+                </div>
+
+                <div class="branch-fact-row">
+                  <span class="info-icon-box" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  </span>
+                  <div>
+                    <strong>График работы</strong>
+                    <span>Ежедневно с 10:00 до 00:00</span>
+                  </div>
+                </div>
+
+                <div class="branch-fact-row">
+                  <span class="info-icon-box" aria-hidden="true">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  </span>
+                  <div>
+                    <strong>Телефон и WhatsApp</strong>
+                    <a href="tel:+996550042597">+996 550 04-25-97</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="branch-actions">
+              <a
+                href="https://yandex.com/maps/-/CXSVe4yU"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-primary"
+              >
+                Открыть на карте
+              </a>
+
+              <a
+                href="https://wa.me/996550042597"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn-secondary"
+              >
+                Написать в WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ПОДВАЛ САЙТА -->
+  <footer id="footer-contacts" class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Блок 1: Brand -->
+        <div class="footer-brand-col">
+          <a href="index.html" class="footer-brand-link" aria-label="ORIGINAL HOT DOG — на главную">
+            <img src="assets/icons/logo.svg" alt="ORIGINAL HOT DOG" width="176" height="45" loading="lazy">
+          </a>
+          <p class="footer-brand-desc">
+            Свежая кухня в Кашкар-Кыштаке: готовим под заказ каждый день с быстрой доставкой и самовывозом.
+          </p>
+          <div class="footer-cuisine-block">
+            <span class="footer-eyebrow">Категории кухни</span>
+            <ul class="footer-cuisine-tags" aria-label="Категории кухни">
+              <li>Пицца</li>
+              <li>Суши и роллы</li>
+              <li>Комбо</li>
+              <li>Шаурма</li>
+              <li>Бургеры</li>
+              <li>Хот-доги</li>
+              <li>Закуски</li>
+              <li>Напитки</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Блок 2: Навигация -->
+        <div class="footer-col">
+          <h3 class="footer-col-title">Навигация</h3>
+          <nav aria-label="Разделы меню в подвале">
+            <ul class="footer-nav-list">
+              <li>
+                <a href="menu.html?category=pizza">
+                  <span>Пицца</span>
+                  <svg class="footer-link-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="menu.html?category=sushi">
+                  <span>Суши и роллы</span>
+                  <svg class="footer-link-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="menu.html?category=combos">
+                  <span>Комбо</span>
+                  <svg class="footer-link-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="menu.html?category=shawarma">
+                  <span>Шаурма</span>
+                  <svg class="footer-link-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="menu.html?category=burgers">
+                  <span>Бургеры и хот-доги</span>
+                  <svg class="footer-link-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </li>
+              <li>
+                <a href="menu.html?category=snacks">
+                  <span>Закуски и напитки</span>
+                  <svg class="footer-link-arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Блок 3: Контакты -->
+        <div class="footer-col">
+          <h3 class="footer-col-title">Контакты</h3>
+          <div class="footer-contact-card">
+            <div class="footer-contact-row">
+              <span class="footer-contact-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              </span>
+              <div>
+                <span class="footer-contact-label">Адрес (1 филиал)</span>
+                <span class="footer-contact-value">Ошская область, Кара-Сууйский район, Кашкар-Кыштак, улица Кара-Суу</span>
+              </div>
+            </div>
+
+            <div class="footer-contact-row">
+              <span class="footer-contact-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              </span>
+              <div>
+                <span class="footer-contact-label">График работы</span>
+                <span class="footer-contact-value">Ежедневно с 10:00 до 00:00</span>
+              </div>
+            </div>
+
+            <div class="footer-contact-row is-interactive">
+              <span class="footer-contact-icon" aria-hidden="true">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+              </span>
+              <div>
+                <span class="footer-contact-label">Телефон</span>
+                <a href="tel:+996550042597" class="footer-phone-link">+996 550 04-25-97</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-actions-row">
+            <a href="https://wa.me/996550042597" target="_blank" rel="noopener noreferrer" class="footer-action-pill is-whatsapp">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+              <span>WhatsApp</span>
+            </a>
+
+            <a href="https://www.instagram.com/_original_hotdog/" target="_blank" rel="noopener noreferrer" class="footer-action-pill">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+              <span>@_original_hotdog</span>
+            </a>
+
+            <a href="https://yandex.com/maps/-/CXSVe4yU" target="_blank" rel="noopener noreferrer" class="footer-action-pill">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"/><line x1="9" y1="3" x2="9" y2="18"/><line x1="15" y1="6" x2="15" y2="21"/></svg>
+              <span>Открыть на карте</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-legal-row">
+          <span class="footer-copyright">© <span data-current-year>2026</span> ORIGINAL HOT DOG.</span>
+          <span>Изображения блюд носят ознакомительный характер.</span>
+        </div>
+        <div class="developer-credit">
+          <a href="https://www.instagram.com/bilolidin.dev/?hl=ru" target="_blank" rel="noopener noreferrer">
+            Designed &amp; Developed by Bilolidin
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- НИЖНЯЯ МОБИЛЬНАЯ НАВИГАЦИЯ (ТОЛЬКО <= 860px) -->
+  <nav id="mobile-bottom-nav" class="mobile-bottom-nav" aria-label="Быстрые разделы">
+    <a href="index.html" class="bottom-nav-item is-active" data-bottom-nav="home" aria-current="page">
+      <span class="bottom-nav-icon-wrap" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg>
+      </span>
+      <span class="bottom-nav-label">Главная</span>
+    </a>
+
+    <a href="menu.html" class="bottom-nav-item" data-bottom-nav="menu">
+      <span class="bottom-nav-icon-wrap" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2v0a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3Zm0 0v7"/></svg>
+      </span>
+      <span class="bottom-nav-label">Меню</span>
+    </a>
+
+    <button type="button" class="bottom-nav-item" data-bottom-nav="cart" data-open-cart aria-label="Корзина">
+      <span class="bottom-nav-icon-wrap" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <span class="bottom-nav-badge" data-bottom-cart-badge hidden>0</span>
+      </span>
+      <span class="bottom-nav-label">Корзина</span>
+    </button>
+
+    <a href="#contacts-section" class="bottom-nav-item" data-bottom-nav="contacts">
+      <span class="bottom-nav-icon-wrap" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+      </span>
+      <span class="bottom-nav-label">Контакты</span>
+    </a>
+  </nav>
+
+  <!-- ФИКСИРОВАННАЯ МОБИЛЬНАЯ ПАНЕЛЬ КОРЗИНЫ -->
+  <aside id="mobile-cart-bar" class="mobile-cart-bar" aria-label="Быстрый переход к заказу">
+    <div class="mobile-cart-info">
+      <strong><span data-mobile-cart-count>0 шт.</span> • <span data-mobile-cart-sum>0 сом</span></strong>
+      <span data-mobile-cart-hint>Бесплатная доставка по Кашкару от &gt;500 сом</span>
+    </div>
+    <button type="button" class="mobile-cart-open-btn" data-open-cart>
+      Корзина
+    </button>
+  </aside>
+
+  <!-- МОДАЛЬНОЕ ОКНО КОРЗИНЫ (<dialog closedby="any">) -->
+  <dialog id="cart-dialog" class="ohd-modal" closedby="any" aria-labelledby="cart-dialog-title">
+    <div class="modal-header">
+      <h2 id="cart-dialog-title" class="modal-title">Ваш заказ</h2>
+      <button type="button" class="modal-close-btn" data-close-cart aria-label="Закрыть корзину" autofocus>✕</button>
+    </div>
+
+    <div class="modal-body">
+      <div id="cart-empty-state" class="cart-empty-box">
+        <h3>Корзина пока пуста</h3>
+        <p>Выберите блюда из меню, чтобы перейти к оформлению заказа.</p>
+        <button type="button" class="btn-primary" data-close-cart>Выбрать блюда</button>
+      </div>
+
+      <div id="cart-filled-state" hidden>
+        <div id="cart-delivery-progress" class="delivery-progress-box"></div>
+
+        <ul id="cart-items-list" class="cart-items-list" aria-label="Выбранные блюда"></ul>
+
+        <div class="cart-summary-footer">
+          <div class="cart-total-row">
+            <span>Итого:</span>
+            <strong id="cart-summary-subtotal">0 сом</strong>
+          </div>
+          <div class="cart-footer-buttons">
+            <button type="button" class="btn-clear-cart" data-clear-cart>Очистить</button>
+            <button type="button" class="btn-primary" data-proceed-checkout>
+              Оформить заказ →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- МОДАЛЬНОЕ ОКНО ОФОРМЛЕНИЯ ЗАКАЗА (<dialog closedby="any">) -->
+  <dialog id="checkout-dialog" class="ohd-modal" closedby="any" aria-labelledby="checkout-dialog-title">
+    <div class="modal-header">
+      <h2 id="checkout-dialog-title" class="modal-title">Оформление заказа</h2>
+      <button type="button" class="modal-close-btn" data-close-checkout aria-label="Закрыть оформление заказа">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <div id="checkout-form-step">
+        <form id="checkout-form" novalidate>
+          <div class="form-group">
+            <label for="checkout-name" class="form-label">Имя <span class="required-star">*</span></label>
+            <span id="checkout-name-hint" class="field-hint">Как к вам обращаться</span>
+            <input
+              type="text"
+              id="checkout-name"
+              name="customerName"
+              class="form-input"
+              required
+              minlength="2"
+              maxlength="100"
+              autocomplete="name"
+              enterkeyhint="next"
+              autofocus
+              placeholder="Например, Азамат"
+              aria-describedby="checkout-name-hint checkout-name-error"
+            >
+            <div id="checkout-name-error" class="field-error-msg" role="alert" hidden></div>
+          </div>
+
+          <div class="form-group">
+            <label for="checkout-phone" class="form-label">Телефон <span class="required-star">*</span></label>
+            <span id="checkout-phone-hint" class="field-hint">Например: +996 550 04-25-97 или 0550 042 597</span>
+            <input
+              type="tel"
+              id="checkout-phone"
+              name="customerPhone"
+              class="form-input"
+              required
+              autocomplete="tel"
+              inputmode="tel"
+              enterkeyhint="next"
+              placeholder="+996 ___ __-__-__"
+              aria-describedby="checkout-phone-hint checkout-phone-error"
+            >
+            <div id="checkout-phone-error" class="field-error-msg" role="alert" hidden></div>
+          </div>
+
+          <fieldset class="order-type-fieldset">
+            <legend class="order-type-legend">Способ получения <span class="required-star">*</span></legend>
+            <div class="order-type-radios">
+              <label class="radio-card-label">
+                <input type="radio" name="orderType" value="delivery" checked>
+                <span>Доставка</span>
+              </label>
+              <label class="radio-card-label">
+                <input type="radio" name="orderType" value="pickup">
+                <span>Самовывоз</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div id="checkout-delivery-conditions"></div>
+
+          <div id="checkout-address-group" class="form-group">
+            <label for="checkout-address" class="form-label">Адрес доставки <span class="required-star">*</span></label>
+            <span id="checkout-address-hint" class="field-hint">Село/район, улица, дом или ориентир</span>
+            <textarea
+              id="checkout-address"
+              name="address"
+              class="form-textarea"
+              required
+              maxlength="300"
+              autocomplete="street-address"
+              placeholder="Кашкар-Кыштак, ул. Кара-Суу, дом..."
+              aria-describedby="checkout-address-hint checkout-address-error"
+            ></textarea>
+            <div id="checkout-address-error" class="field-error-msg" role="alert" hidden></div>
+          </div>
+
+          <div id="checkout-pickup-info" class="pickup-address-banner" hidden>
+            <strong>Адрес самовывоза:</strong> Ошская область, Кара-Сууйский район, Кашкар-Кыштак, улица Кара-Суу (ежедневно 10:00–00:00).
+          </div>
+
+          <div class="form-group">
+            <label for="checkout-comment" class="form-label">Комментарий (необязательно)</label>
+            <span id="checkout-comment-hint" class="field-hint">Пожелания по заказу или времени доставки</span>
+            <textarea
+              id="checkout-comment"
+              name="comment"
+              class="form-textarea"
+              maxlength="400"
+              placeholder="Например: без лука, позвонить заранее..."
+              aria-describedby="checkout-comment-hint"
+            ></textarea>
+          </div>
+
+          <div class="checkout-summary-box">
+            <h3>Ваш заказ:</h3>
+            <ul id="checkout-order-items" class="checkout-summary-list"></ul>
+            <div class="checkout-summary-total-row">
+              <span>Итого:</span>
+              <strong id="checkout-order-total">0 сом</strong>
+            </div>
+          </div>
+
+          <details class="whatsapp-preview-details">
+            <summary>Посмотреть текст сообщения для WhatsApp</summary>
+            <pre id="checkout-whatsapp-preview" class="whatsapp-preview-pre"></pre>
+          </details>
+
+          <button type="submit" class="btn-whatsapp-submit">
+            <span>Отправить заказ в WhatsApp</span>
+          </button>
+          <p style="font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 0.55rem;">
+            Откроется чат WhatsApp с готовым заказом — нажмите кнопку отправки в приложении.
+          </p>
+        </form>
+      </div>
+
+      <div id="checkout-sent-panel" class="checkout-sent-box" hidden>
+        <h3>Подтвердите отправку в WhatsApp</h3>
+        <p>
+          Мы подготовили ваш заказ для чата <strong>+996 550 04-25-97</strong>.
+          Пожалуйста, нажмите кнопку <strong>«Отправить»</strong> в открывшемся окне WhatsApp.
+        </p>
+
+        <pre id="checkout-final-message-text" class="whatsapp-preview-pre" style="text-align: left; margin-block: 0.85rem;"></pre>
+
+        <div class="checkout-sent-actions">
+          <a
+            id="checkout-direct-wa-link"
+            href="https://wa.me/996550042597"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-whatsapp-submit"
+          >
+            Открыть WhatsApp ещё раз
+          </a>
+
+          <button type="button" class="btn-confirm-sent" data-confirm-order-sent>
+            Я отправил заказ — очистить корзину
+          </button>
+
+          <button type="button" class="btn-clear-cart" data-back-to-checkout-form>
+            ← Вернуться к редактированию
+          </button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="data/config.js"></script>
+  <script src="data/combos.js"></script>
+  <script src="data/menu.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/whatsapp.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/checkout.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

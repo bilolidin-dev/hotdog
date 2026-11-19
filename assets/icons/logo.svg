@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 248 64" fill="none">
+  <!-- Эмблема бренда -->
+  <rect x="2" y="4" width="56" height="56" rx="14" fill="#D6381A"/>
+  <path d="M14 25C14 18.2 21 14 30 14C39 14 46 18.2 46 25H14Z" fill="#FFF7EB"/>
+  <circle cx="24" cy="19.5" r="1.4" fill="#D6381A"/>
+  <circle cx="30" cy="18" r="1.4" fill="#D6381A"/>
+  <circle cx="36" cy="19.5" r="1.4" fill="#D6381A"/>
+  <rect x="12" y="28" width="36" height="7" rx="3.5" fill="#F4B41A"/>
+  <path d="M16 31.5Q20 29.2 24 31.5T32 31.5T40 31.5T45 31.5" stroke="#D6381A" stroke-width="2" stroke-linecap="round" fill="none"/>
+  <path d="M14 38H46C46 43.8 40.5 47.5 30 47.5C19.5 47.5 14 43.8 14 38Z" fill="#FFF7EB"/>
+  <!-- Типографика для светлого фона -->
+  <text x="70" y="26" fill="#1C1917" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="19.5" letter-spacing="0.8">ORIGINAL</text>
+  <rect x="70" y="31" width="106" height="20" rx="5" fill="#D6381A"/>
+  <text x="78" y="45.5" fill="#FFFFFF" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="800" font-size="14.5" letter-spacing="1.6">HOT DOG</text>
+  <text x="71" y="60.5" fill="#786F68" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" font-weight="600" font-size="9" letter-spacing="2">ПИЦЦА • СУШИ • ФАСТФУД</text>
+</svg>
