@@ -77,7 +77,8 @@ body {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
   text-wrap: balance;
 }
 
@@ -328,6 +329,10 @@ ol {
   align-items: center;
 }
 
+.hero-grid > * {
+  min-inline-size: 0;
+}
+
 .hero-meta-line {
   display: flex;
   flex-wrap: wrap;
@@ -340,7 +345,7 @@ ol {
 }
 
 .hero-meta-line span {
-  white-space: nowrap;
+  overflow-wrap: break-word;
 }
 
 .status-dot {

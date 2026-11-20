@@ -7,6 +7,7 @@
 
   const SITE_CONFIG = {
     restaurantName: 'ORIGINAL HOT DOG',
+    siteUrl: 'https://original-hotdog-osh.vercel.app',
     shortTagline: 'Пицца • Суши и роллы • Шаурма • Бургеры • Хот-доги',
     description:
       'Официальное меню ресторана ORIGINAL HOT DOG в Кашкар-Кыштаке. Заказывайте свежую пиццу, роллы, шаурму, бургеры, хот-доги и комбо с доставкой или самовывозом через WhatsApp.',

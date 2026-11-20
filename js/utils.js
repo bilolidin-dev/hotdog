@@ -144,8 +144,47 @@
    * @param {string} message
    * @param {'success'|'info'|'warning'} type
    */
+  function createToastIconSvg(type) {
+    const ns = 'http://www.w3.org/2000/svg';
+    const svg = document.createElementNS(ns, 'svg');
+    svg.setAttribute('width', '18');
+    svg.setAttribute('height', '18');
+    svg.setAttribute('viewBox', '0 0 24 24');
+    svg.setAttribute('fill', 'none');
+    svg.setAttribute('stroke', 'currentColor');
+    svg.setAttribute('stroke-width', type === 'warning' ? '2.3' : '2.5');
+    svg.setAttribute('stroke-linecap', 'round');
+    svg.setAttribute('stroke-linejoin', 'round');
+    svg.setAttribute('aria-hidden', 'true');
+
+    if (type === 'warning') {
+      const circle = document.createElementNS(ns, 'circle');
+      circle.setAttribute('cx', '12');
+      circle.setAttribute('cy', '12');
+      circle.setAttribute('r', '10');
+      const line1 = document.createElementNS(ns, 'line');
+      line1.setAttribute('x1', '12');
+      line1.setAttribute('y1', '8');
+      line1.setAttribute('x2', '12');
+      line1.setAttribute('y2', '12');
+      const line2 = document.createElementNS(ns, 'line');
+      line2.setAttribute('x1', '12');
+      line2.setAttribute('y1', '16');
+      line2.setAttribute('x2', '12.01');
+      line2.setAttribute('y2', '16');
+      svg.appendChild(circle);
+      svg.appendChild(line1);
+      svg.appendChild(line2);
+    } else {
+      const path = document.createElementNS(ns, 'path');
+      path.setAttribute('d', 'M20 6 9 17l-5-5');
+      svg.appendChild(path);
+    }
+    return svg;
+  }
+
   function showToast(message, type = 'success') {
-    if (typeof document === 'undefined') return;
+    if (typeof document === 'undefined' || !document.body) return;
     let container = document.getElementById('ohd-toast-container');
     if (!container) {
       container = document.createElement('div');
@@ -156,19 +195,20 @@
       document.body.appendChild(container);
     }
 
+    const safeType = type === 'warning' || type === 'info' ? type : 'success';
     const toast = document.createElement('div');
-    toast.className = `toast-item toast-${type}`;
+    toast.className = `toast-item toast-${safeType}`;
 
-    const iconSvg =
-      type === 'warning'
-        ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>'
-        : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>';
+    const iconWrap = document.createElement('span');
+    iconWrap.className = 'toast-icon';
+    iconWrap.appendChild(createToastIconSvg(safeType));
 
-    toast.innerHTML = `
-      <span class="toast-icon">${iconSvg}</span>
-      <span class="toast-text">${escapeHtml(message)}</span>
-    `;
+    const textWrap = document.createElement('span');
+    textWrap.className = 'toast-text';
+    textWrap.textContent = stripControlChars(message);
 
+    toast.appendChild(iconWrap);
+    toast.appendChild(textWrap);
     container.appendChild(toast);
 
     setTimeout(() => {
@@ -252,10 +292,129 @@
     });
   }
 
+  function stripControlChars(value) {
+    return String(value == null ? '' : value).replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, '');
+  }
+
+  function sanitizeTextInput(value, maxLength = 400) {
+    const cleaned = stripControlChars(value).trim();
+    const limit = typeof maxLength === 'number' && maxLength > 0 ? maxLength : 400;
+    return cleaned.slice(0, limit);
+  }
+
+  function isStorageAvailable() {
+    try {
+      if (typeof global.localStorage === 'undefined' || global.localStorage === null) return false;
+      const probeKey = '__ohd_storage_probe__';
+      global.localStorage.setItem(probeKey, '1');
+      global.localStorage.removeItem(probeKey);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function safeStorageGetJson(key) {
+    try {
+      if (typeof global.localStorage === 'undefined' || global.localStorage === null) {
+        return { ok: false, data: null, errorCode: 'unavailable' };
+      }
+      const raw = global.localStorage.getItem(key);
+      if (raw === null || raw === '') {
+        return { ok: true, data: null, errorCode: 'empty' };
+      }
+      if (raw.length > 65536) {
+        return { ok: false, data: null, errorCode: 'corrupted' };
+      }
+      const parsed = JSON.parse(raw);
+      return { ok: true, data: parsed, errorCode: 'ok' };
+    } catch (err) {
+      const name = err && err.name ? String(err.name) : '';
+      const errorCode =
+        name === 'SyntaxError'
+          ? 'corrupted'
+          : name === 'SecurityError' || err instanceof TypeError
+          ? 'unavailable'
+          : 'read_error';
+      return { ok: false, data: null, errorCode };
+    }
+  }
+
+  function safeStorageSetJson(key, value) {
+    try {
+      if (typeof global.localStorage === 'undefined' || global.localStorage === null) {
+        return { ok: false, errorCode: 'unavailable' };
+      }
+      const serialized = JSON.stringify(value);
+      global.localStorage.setItem(key, serialized);
+      return { ok: true, errorCode: 'ok' };
+    } catch (err) {
+      const name = err && err.name ? String(err.name) : '';
+      const msg = err && err.message ? String(err.message) : '';
+      const errorCode =
+        name === 'QuotaExceededError' ||
+        name === 'NS_ERROR_DOM_QUOTA_REACHED' ||
+        /quota/i.test(msg)
+          ? 'quota_exceeded'
+          : 'unavailable';
+      return { ok: false, errorCode };
+    }
+  }
+
+  function safeStorageRemove(key) {
+    try {
+      if (typeof global.localStorage === 'undefined' || global.localStorage === null) return false;
+      global.localStorage.removeItem(key);
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function isValidWhatsAppNumber(phone) {
+    const digits = String(phone == null ? '' : phone).replace(/\D/g, '');
+    return /^996\d{9}$/.test(digits) || /^\d{9,15}$/.test(digits);
+  }
+
+  function isSafeExternalUrl(rawUrl) {
+    const val = String(rawUrl || '').trim();
+    if (!val || /^[\s\u0000-\u0020]*(?:javascript|data|vbscript|file):/i.test(val)) {
+      return false;
+    }
+    if (typeof URL === 'undefined') {
+      return /^(?:https?:\/\/|tel:)/i.test(val);
+    }
+    try {
+      const baseHref =
+        global.location && global.location.href
+          ? global.location.href
+          : 'https://original-hotdog-osh.vercel.app/';
+      const parsed = new URL(val, baseHref);
+      return parsed.protocol === 'https:' || parsed.protocol === 'http:' || parsed.protocol === 'tel:';
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function isSafeLocalAssetPath(assetPath) {
+    const s = String(assetPath == null ? '' : assetPath).trim();
+    if (!s || s.includes('..') || /^(?:javascript|data|vbscript|file):/i.test(s)) return false;
+    return /^assets\/images\/[a-z0-9/_-]+\.(?:webp|png|jpe?g|svg)$/i.test(s);
+  }
+
   global.OHD = global.OHD || {};
   global.OHD.utils = {
     formatPrice,
     escapeHtml,
+    stripControlChars,
+    sanitizeTextInput,
+    isStorageAvailable,
+    safeStorageGetJson,
+    safeStorageSetJson,
+    safeStorageRemove,
+    isValidWhatsAppNumber,
+    isSafeExternalUrl,
+    isSafeLocalAssetPath,
     isItemOrderable,
     calculateDeliveryStatus,
     getWorkingStatus,

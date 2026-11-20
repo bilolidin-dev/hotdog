@@ -93,8 +93,21 @@
   /**
    * Генерирует чистую редакционную карточку блюда
    * @param {object} item
+   * @param {object} [options]
+   * @param {'h2'|'h3'|'h4'} [options.headingTag='h3']
+   * @param {boolean} [options.isLcp=false]
+   * @param {boolean} [options.isEager=false]
    */
-  function renderMenuItemCard(item) {
+  function renderMenuItemCard(item, options = {}) {
+    const headingTag = options.headingTag || 'h3';
+    const isLcp = Boolean(options.isLcp);
+    const isEager = isLcp || Boolean(options.isEager);
+    const imgPriorityAttrs = isLcp
+      ? 'fetchpriority="high"'
+      : isEager
+        ? ''
+        : 'loading="lazy"\n            decoding="async"';
+
     const isOrderable = utils.isItemOrderable(item);
     const isCombo = item.category === 'combos' && Array.isArray(item.composition);
     const sizeBadge = formatSizeBadge(item);
@@ -116,23 +129,24 @@
         ? `<p class="menu-card-desc">${utils.escapeHtml(item.description)}</p>`
         : '';
 
+    const isBeverage = item.category === 'drinks';
+
     return `
-      <article class="menu-card ${!isOrderable ? 'is-price-pending' : ''}" data-card-item-id="${utils.escapeHtml(item.id)}">
-        <div class="menu-card-media">
+      <article class="menu-card ${!isOrderable ? 'is-price-pending' : ''} ${isBeverage ? 'is-drink-card' : ''}" data-card-item-id="${utils.escapeHtml(item.id)}">
+        <div class="menu-card-media ${isBeverage ? 'is-beverage' : ''}">
           <img
             src="${utils.escapeHtml(item.image)}"
             alt="${utils.escapeHtml(item.name)}${item.size && item.size !== 'Не указан' ? ` (${utils.escapeHtml(item.size)})` : ''}"
             width="400"
             height="300"
-            loading="lazy"
-            decoding="async"
-            class="menu-card-img"
+            ${imgPriorityAttrs}
+            class="menu-card-img ${isBeverage ? 'is-beverage-img' : ''}"
           >
         </div>
         <div class="menu-card-body">
           <div>
             <div class="menu-card-title-wrap">
-              <h3 class="menu-card-title">${utils.escapeHtml(item.name)}</h3>
+              <${headingTag} class="menu-card-title">${utils.escapeHtml(item.name)}</${headingTag}>
               ${sizeBadge || comboNumberBadge}
             </div>
             ${descriptionHtml}
@@ -163,7 +177,7 @@
       .map((id) => global.OHD.getCatalogItemById(id))
       .filter(Boolean);
 
-    grid.innerHTML = items.map((item) => renderMenuItemCard(item)).join('');
+    grid.innerHTML = items.map((item) => renderMenuItemCard(item, { headingTag: 'h3' })).join('');
   }
 
   /**
@@ -194,8 +208,8 @@
               >
             </div>
             <div class="combo-feature-content">
-              <div class="menu-card-title-wrap" style="margin-bottom: 0.4rem;">
-                <h3 class="combo-feature-title" style="margin-bottom: 0;">${utils.escapeHtml(combo.name)}</h3>
+              <div class="menu-card-title-wrap combo-modal-heading">
+                <h3 class="combo-feature-title combo-modal-list">${utils.escapeHtml(combo.name)}</h3>
                 ${comboNumberBadge}
               </div>
               <p class="combo-feature-desc">${utils.escapeHtml(combo.description)}</p>
@@ -229,14 +243,14 @@
       .map(
         (cat) => `
         <a
-          href="#catalog-section"
+          href="menu.html?category=${utils.escapeHtml(cat.id)}"
           class="category-quick-card"
           data-select-category="${utils.escapeHtml(cat.id)}"
           aria-label="Перейти к категории ${utils.escapeHtml(cat.name)}"
         >
           <img
             src="${utils.escapeHtml(cat.image)}"
-            alt="${utils.escapeHtml(cat.name)}"
+            alt="Категория меню: ${utils.escapeHtml(cat.name)}"
             width="64"
             height="48"
             loading="lazy"
@@ -326,16 +340,28 @@
       resultsStatus.textContent = `Позиций: ${filteredItems.length}`;
     }
 
+    const isCatalogMainPage = Boolean(document.getElementById('page-menu-title'));
+    const groupHeadingTag = isCatalogMainPage ? 'h2' : 'h3';
+    const groupedCardHeadingTag = isCatalogMainPage ? 'h3' : 'h4';
+    const flatCardHeadingTag = isCatalogMainPage ? 'h2' : 'h3';
+
     if (filteredItems.length === 0) {
       container.innerHTML = `
         <div class="catalog-empty-box">
-          <h3>Ничего не найдено</h3>
+          <${groupHeadingTag}>Ничего не найдено</${groupHeadingTag}>
           <p>Попробуйте изменить поисковый запрос или выбрать другую категорию.</p>
           <button type="button" class="btn-primary" data-reset-filters>Показать всё меню</button>
         </div>
       `;
       return;
     }
+
+    let renderedIndex = 0;
+    const cardPriorityOptions = () => {
+      const idx = renderedIndex++;
+      if (!isCatalogMainPage) return {};
+      return { isLcp: idx === 0, isEager: idx > 0 && idx < 3 };
+    };
 
     if (activeCategory === 'all' && !normalizedQuery) {
       container.innerHTML = CONFIG.categories
@@ -345,11 +371,18 @@
           return `
             <section class="catalog-category-group" id="cat-group-${utils.escapeHtml(cat.id)}" aria-labelledby="heading-${utils.escapeHtml(cat.id)}">
               <div class="catalog-group-header">
-                <h3 id="heading-${utils.escapeHtml(cat.id)}" class="catalog-group-title">${utils.escapeHtml(cat.name)}</h3>
+                <${groupHeadingTag} id="heading-${utils.escapeHtml(cat.id)}" class="catalog-group-title">${utils.escapeHtml(cat.name)}</${groupHeadingTag}>
                 <span class="catalog-group-count">${catItems.length}</span>
               </div>
               <div class="menu-cards-grid">
-                ${catItems.map((item) => renderMenuItemCard(item)).join('')}
+                ${catItems
+                  .map((item) =>
+                    renderMenuItemCard(item, {
+                      headingTag: groupedCardHeadingTag,
+                      ...cardPriorityOptions(),
+                    })
+                  )
+                  .join('')}
               </div>
             </section>
           `;
@@ -360,7 +393,14 @@
 
     container.innerHTML = `
       <div class="menu-cards-grid">
-        ${filteredItems.map((item) => renderMenuItemCard(item)).join('')}
+        ${filteredItems
+          .map((item) =>
+            renderMenuItemCard(item, {
+              headingTag: flatCardHeadingTag,
+              ...cardPriorityOptions(),
+            })
+          )
+          .join('')}
       </div>
     `;
   }

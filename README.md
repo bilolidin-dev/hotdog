@@ -105,3 +105,28 @@ python3 -m http.server 8080
 ```bash
 npx vercel --prod
 ```
+
+---
+
+## 6. SEO, Карта сайта и Локальное продвижение
+
+Production-URL сайта: `https://original-hotdog-osh.vercel.app/`
+
+В проекте настроены:
+- `<link rel="canonical">` для `/` и `/menu.html`;
+- Open Graph и Twitter Card для корректного превью в WhatsApp и Telegram;
+- Schema.org JSON-LD (`Restaurant`, `FoodEstablishment`, `Menu`, `BreadcrumbList`);
+- `sitemap.xml` и `robots.txt` в корне сайта.
+
+### Подключение поисковых панелей и справочников (действия владельца)
+1. **Google Search Console**: добавьте ресурс `https://original-hotdog-osh.vercel.app`, подтвердите через HTML-метатег в `<head>` обеих страниц (или DNS при подключении собственного домена) и отправьте `https://original-hotdog-osh.vercel.app/sitemap.xml`.
+2. **Яндекс Вебмастер**: добавьте сайт, подтвердите права метатегом `yandex-verification` в `<head>` и укажите `https://original-hotdog-osh.vercel.app/sitemap.xml`.
+3. **Bing Webmaster Tools**: импортируйте свойства из Google Search Console или подтвердите через метатег `msvalidate.01`.
+4. **Google Business Profile, Яндекс Карты, 2GIS**: используйте единый NAP без расхождений:
+   - Название: `ORIGINAL HOT DOG`
+   - Телефон: `+996550042597` (`+996 550 04-25-97`)
+   - Адрес: `Ошская область, Кара-Сууйский район, Кашкар-Кыштак, улица Кара-Суу`
+   - График: ежедневно `10:00–00:00`
+   - Сайт: `https://original-hotdog-osh.vercel.app/`
+   - Instagram: `https://www.instagram.com/_original_hotdog/`
+5. При подключении собственного домена (например, `.kg` / `.com`) обновите базовый URL в `data/config.js`, `index.html`, `menu.html`, `sitemap.xml` и `robots.txt`.

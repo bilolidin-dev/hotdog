@@ -3,22 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>ORIGINAL HOT DOG — Пицца, Суши и роллы, Шаурма, Хот-доги в Кашкар-Кыштаке</title>
-  <meta name="description" content="Меню ресторана ORIGINAL HOT DOG в Кашкар-Кыштаке (ул. Кара-Суу). Пицца, суши и роллы, комбо-наборы, шаурма, бургеры, хот-доги и напитки. Бесплатная доставка по Кашкар-Кыштаку при заказе свыше 500 сом. Заказ через WhatsApp.">
+  <title>ORIGINAL HOT DOG — Пицца, суши, шаурма и хот-доги | Кашкар-Кыштак</title>
+  <meta name="description" content="Заказать пиццу, суши и роллы, шаурму, бургеры, хот-доги и комбо в Кашкар-Кыштаке (Ошская область). Бесплатная доставка по Кашкару свыше 500 сом и самовывоз в WhatsApp.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
   <meta name="theme-color" content="#faf7f2">
+  <link rel="canonical" href="https://original-hotdog-osh.vercel.app/">
 
-  <!-- Open Graph -->
+  <!-- Open Graph / WhatsApp / Telegram -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="ru_RU">
-  <meta property="og:title" content="ORIGINAL HOT DOG — Меню и заказ через WhatsApp">
-  <meta property="og:description" content="Свежая пицца, роллы, шаурма, бургеры и фирменные хот-доги. Работаем ежедневно с 10:00 до 00:00.">
-  <meta property="og:image" content="assets/images/banners/hero-banner.webp">
+  <meta property="og:site_name" content="ORIGINAL HOT DOG">
+  <meta property="og:url" content="https://original-hotdog-osh.vercel.app/">
+  <meta property="og:title" content="ORIGINAL HOT DOG — Пицца, суши и фастфуд в Кашкар-Кыштаке">
+  <meta property="og:description" content="Меню ресторана ORIGINAL HOT DOG (ул. Кара-Суу): пицца, роллы, комбо включая Бейишим апам, шаурма, бургеры и фирменные хот-доги. Заказ через WhatsApp с 10:00 до 00:00.">
+  <meta property="og:image" content="https://original-hotdog-osh.vercel.app/assets/images/banners/hero-banner.webp">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="900">
+  <meta property="og:image:alt" content="Блюда ресторана ORIGINAL HOT DOG: пицца Пепперони, роллы с лососем, картофель фри и фирменный хот-дог">
 
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ORIGINAL HOT DOG — Пицца, суши и фастфуд в Кашкар-Кыштаке">
+  <meta name="twitter:description" content="Заказывайте пиццу, суши, шаурму, бургеры, хот-доги и комбо в Кашкар-Кыштаке (Ошская область) через WhatsApp. Ежедневно 10:00–00:00.">
+  <meta name="twitter:image" content="https://original-hotdog-osh.vercel.app/assets/images/banners/hero-banner.webp">
+  <meta name="twitter:image:alt" content="Блюда ресторана ORIGINAL HOT DOG">
+
+  <link rel="preload" as="image" href="assets/images/banners/hero-banner.webp" fetchpriority="high" type="image/webp">
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/components.css">
   <link rel="stylesheet" href="css/animations.css">
   <link rel="stylesheet" href="css/responsive.css">
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://original-hotdog-osh.vercel.app/#website",
+          "url": "https://original-hotdog-osh.vercel.app/",
+          "name": "ORIGINAL HOT DOG",
+          "inLanguage": "ru"
+        },
+        {
+          "@type": ["Restaurant", "FoodEstablishment"],
+          "@id": "https://original-hotdog-osh.vercel.app/#restaurant",
+          "name": "ORIGINAL HOT DOG",
+          "url": "https://original-hotdog-osh.vercel.app/",
+          "image": "https://original-hotdog-osh.vercel.app/assets/images/banners/hero-banner.webp",
+          "logo": "https://original-hotdog-osh.vercel.app/assets/icons/logo.svg",
+          "telephone": "+996550042597",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "улица Кара-Суу",
+            "addressLocality": "Кашкар-Кыштак",
+            "addressRegion": "Ошская область, Кара-Сууйский район",
+            "addressCountry": "KG"
+          },
+          "areaServed": [
+            { "@type": "Place", "name": "Кашкар-Кыштак" },
+            { "@type": "Place", "name": "Кара-Сууйский район" },
+            { "@type": "City", "name": "Ош" }
+          ],
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+              ],
+              "opens": "10:00",
+              "closes": "00:00"
+            }
+          ],
+          "servesCuisine": [
+            "Пицца",
+            "Суши и роллы",
+            "Фастфуд",
+            "Шаурма",
+            "Бургеры",
+            "Хот-доги"
+          ],
+          "hasMenu": "https://original-hotdog-osh.vercel.app/menu.html",
+          "hasMap": "https://yandex.com/maps/-/CXSVe4yU",
+          "sameAs": [
+            "https://www.instagram.com/_original_hotdog/"
+          ]
+        },
+        {
+          "@type": "WebPage",
+          "url": "https://original-hotdog-osh.vercel.app/",
+          "name": "ORIGINAL HOT DOG — Пицца, суши, шаурма и хот-доги | Кашкар-Кыштак",
+          "description": "Заказать пиццу, суши и роллы, шаурму, бургеры, хот-доги и комбо в Кашкар-Кыштаке (Ошская область). Бесплатная доставка по Кашкару свыше 500 сом и самовывоз в WhatsApp.",
+          "inLanguage": "ru",
+          "isPartOf": {
+            "@id": "https://original-hotdog-osh.vercel.app/#website"
+          },
+          "about": {
+            "@id": "https://original-hotdog-osh.vercel.app/#restaurant"
+          }
+        }
+      ]
+    }
+  </script>
 </head>
 <body>
   <a href="#main-content" class="skip-link visually-hidden">Перейти к меню</a>
@@ -96,7 +189,7 @@
           </h1>
 
           <p class="hero-subtitle">
-            Выберите блюда в каталоге, добавьте в корзину и отправьте готовый заказ в наш WhatsApp — с доставкой или самовывозом.
+            Выберите пиццу, суши и роллы, шаурму, бургеры, комбо или фирменный хот-дог и отправьте заказ в WhatsApp — с доставкой по Кашкар-Кыштаку, Кара-Сууйскому району, в Ош или самовывозом с ул. Кара-Суу.
           </p>
 
           <div class="hero-cta-group">
@@ -139,13 +232,13 @@
     </section>
 
     <!-- БЫСТРЫЙ ПЕРЕХОД ПО КАТЕГОРИЯМ -->
-    <section id="categories-section" class="section-block" aria-labelledby="categories-title" style="padding-bottom: 1rem;">
+    <section id="categories-section" class="section-block section-block-compact-bottom" aria-labelledby="categories-title">
       <div class="container">
-        <div class="section-header" style="margin-bottom: 1.25rem;">
+        <div class="section-header section-header-compact">
           <div>
             <h2 id="categories-title" class="section-title">Разделы меню</h2>
           </div>
-          <a href="menu.html" class="nav-link" style="text-decoration: underline;">Открыть отдельную страницу меню →</a>
+          <a href="menu.html" class="nav-link nav-link-underlined">Открыть отдельную страницу меню →</a>
         </div>
 
         <div id="home-categories-grid" class="category-quick-grid"></div>
@@ -163,7 +256,7 @@
         </div>
 
         <div class="catalog-controls-bar">
-          <div class="catalog-search-row">
+          <search class="catalog-search-row">
             <div class="search-input-wrap">
               <label for="menu-search-input" class="visually-hidden">Поиск блюда по названию</label>
               <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
@@ -188,7 +281,7 @@
               >✕</button>
             </div>
             <div id="catalog-results-count" class="catalog-results-count" aria-live="polite"></div>
-          </div>
+          </search>
 
           <div
             id="category-filter-tabs"
@@ -198,7 +291,11 @@
           ></div>
         </div>
 
-        <div id="menu-catalog-container"></div>
+        <div id="menu-catalog-container">
+          <noscript>
+            <p>Для интерактивной корзины включите JavaScript. Все категории меню доступны по прямым ссылкам: Пицца, Суши и роллы, Комбо-наборы (включая «Бейишим апам» 2400 сом), Шаурма, Бургеры, Хот-доги, Закуски и Напитки. Заказать можно напрямую по телефону +996 550 04-25-97 или в WhatsApp.</p>
+          </noscript>
+        </div>
       </div>
     </section>
 
@@ -249,7 +346,7 @@
 
           <div class="branch-location-box">
             <div>
-              <h3 class="section-title" style="font-size: 1.4rem; margin-bottom: 1rem;">Адрес и контакты</h3>
+              <h3 class="section-title branch-contacts-title">Адрес и контакты</h3>
 
               <div class="branch-facts-grid">
                 <div class="branch-fact-row">
@@ -566,6 +663,9 @@
               name="customerPhone"
               class="form-input"
               required
+              minlength="9"
+              maxlength="24"
+              pattern="[\d\s+\-()]{9,24}"
               autocomplete="tel"
               inputmode="tel"
               enterkeyhint="next"
@@ -599,6 +699,7 @@
               name="address"
               class="form-textarea"
               required
+              minlength="5"
               maxlength="300"
               autocomplete="street-address"
               placeholder="Кашкар-Кыштак, ул. Кара-Суу, дом..."
@@ -613,15 +714,16 @@
 
           <div class="form-group">
             <label for="checkout-comment" class="form-label">Комментарий (необязательно)</label>
-            <span id="checkout-comment-hint" class="field-hint">Пожелания по заказу или времени доставки</span>
+            <span id="checkout-comment-hint" class="field-hint">Пожелания по заказу или времени доставки (до 400 символов)</span>
             <textarea
               id="checkout-comment"
               name="comment"
               class="form-textarea"
               maxlength="400"
               placeholder="Например: без лука, позвонить заранее..."
-              aria-describedby="checkout-comment-hint"
+              aria-describedby="checkout-comment-hint checkout-comment-error"
             ></textarea>
+            <div id="checkout-comment-error" class="field-error-msg" role="alert" hidden></div>
           </div>
 
           <div class="checkout-summary-box">
@@ -638,11 +740,13 @@
             <pre id="checkout-whatsapp-preview" class="whatsapp-preview-pre"></pre>
           </details>
 
+          <div id="checkout-form-error" class="checkout-form-alert" role="alert" hidden></div>
+
           <button type="submit" class="btn-whatsapp-submit">
             <span>Отправить заказ в WhatsApp</span>
           </button>
-          <p style="font-size: 0.78rem; color: var(--text-muted); text-align: center; margin-top: 0.55rem;">
-            Откроется чат WhatsApp с готовым заказом — нажмите кнопку отправки в приложении.
+          <p class="checkout-submit-note">
+            Откроется чат WhatsApp с готовым заказом — нажмите кнопку «Отправить» в приложении. Переход на сайт WhatsApp не подтверждает приём заказа до отправки сообщения.
           </p>
         </form>
       </div>
@@ -650,11 +754,11 @@
       <div id="checkout-sent-panel" class="checkout-sent-box" hidden>
         <h3>Подтвердите отправку в WhatsApp</h3>
         <p>
-          Мы подготовили ваш заказ для чата <strong>+996 550 04-25-97</strong>.
-          Пожалуйста, нажмите кнопку <strong>«Отправить»</strong> в открывшемся окне WhatsApp.
+          Мы подготовили текст заказа для чата <strong>+996 550 04-25-97</strong>.
+          Заказ ещё <strong>не передан</strong> автоматически — обязательно нажмите <strong>«Отправить»</strong> в открывшемся чате WhatsApp (или скопируйте текст ниже, если приложение не открылось).
         </p>
 
-        <pre id="checkout-final-message-text" class="whatsapp-preview-pre" style="text-align: left; margin-block: 0.85rem;"></pre>
+        <pre id="checkout-final-message-text" class="whatsapp-preview-pre checkout-final-preview"></pre>
 
         <div class="checkout-sent-actions">
           <a
@@ -679,14 +783,14 @@
     </div>
   </dialog>
 
-  <script src="data/config.js"></script>
-  <script src="data/combos.js"></script>
-  <script src="data/menu.js"></script>
-  <script src="js/utils.js"></script>
-  <script src="js/whatsapp.js"></script>
-  <script src="js/cart.js"></script>
-  <script src="js/checkout.js"></script>
-  <script src="js/menu.js"></script>
-  <script src="js/app.js"></script>
+  <script defer src="data/config.js"></script>
+  <script defer src="data/combos.js"></script>
+  <script defer src="data/menu.js"></script>
+  <script defer src="js/utils.js"></script>
+  <script defer src="js/whatsapp.js"></script>
+  <script defer src="js/cart.js"></script>
+  <script defer src="js/checkout.js"></script>
+  <script defer src="js/menu.js"></script>
+  <script defer src="js/app.js"></script>
 </body>
 </html>
